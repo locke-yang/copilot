@@ -1,0 +1,15 @@
+
+{
+  "servers": {
+    "gitlab": {
+      "command": "npx",
+      "args": ["-y", "@zereight/mcp-gitlab"],
+      "env": {
+        "GITLAB_API_URL": "http://<your-gitlab-host>/api/v4",
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "<YOUR_PAT>",
+        "GITLAB_ALLOWED_PROJECT_IDS": "",
+        "GITLAB_READ_ONLY_MODE": "true"
+      }
+    }
+  }
+}
