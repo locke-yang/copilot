@@ -67,8 +67,7 @@ handoffs:
 建立對應的 Git 標籤，並在訊息中包含主要變更摘要：
 
 ```bash
-git tag -a vX.Y.Z -m "Release vX.Y.Z
-
+git tag -a vX.Y.Z -m "
 主要變更：
 - 新增功能簡述
 - 修改項簡述
