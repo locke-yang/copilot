@@ -5,7 +5,7 @@
 格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 版本號遵循 [語意化版本控制](https://semver.org/spec/v2.0.0.html)。
 
-## [[1.0.0](../../releases/tag/v1.0.0)] - 2025-12-10
+## [[1.0.0](../../tags/v1.0.0)] - 2025-12-10
 
 ### 新增
 

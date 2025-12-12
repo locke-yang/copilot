@@ -54,6 +54,20 @@ Copy-Item .\.github\instructions\EmbraceBreakingChanges.instructions.md .\your-p
 
 詳見 [Agents 使用指南](docs/agents/README.md)
 
+#### 安裝 Agents 到使用者全域設定
+
+若要讓所有 VS Code 工作區都能使用 Agent，執行以下指令：
+
+```powershell
+# 執行安裝腳本
+.\scripts\Install-UserAgents.ps1
+
+# 或使用 -Force 參數覆蓋現有檔案
+.\scripts\Install-UserAgents.ps1 -Force
+```
+
+安裝後，Agent 將被複製到 `%APPDATA%\Code\User\.github\agents`，所有工作區都可以存取。
+
 ## 📋 指令集結構
 
 ```
