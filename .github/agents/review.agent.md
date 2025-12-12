@@ -11,13 +11,15 @@ handoffs:
 
 # Review Agent
 
-審查未提交（uncommitted）的代碼變更，分析變更內容並提供改進建議。
+審查代碼變更，分析變更內容並提供改進建議。
 
 ## 執行流程
 
-1. 使用 `git status` 檢視未提交的變更
-2. 使用 `git diff` 查看 unstaged 變更
-3. 使用 `git diff --cached` 查看 staged 變更
+預設情況下，針對「已暫存（staged）」的變更進行審查，未暫存（unstaged）的變更僅作為參考：
+
+1. 使用 `git status` 檢視變更概況
+2. 使用 `git diff --cached` 查看 staged 變更（主要審查對象）
+3. 使用 `git diff` 查看 unstaged 變更（次要參考，視需要提醒先暫存）
 4. 分析變更內容：
    - 代碼品質和風格
    - 潛在問題和 Bug
