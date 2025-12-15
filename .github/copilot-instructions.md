@@ -67,3 +67,9 @@ Get-ChildItem; Set-Location .\src
 bash -c "ls -la ./src"
 New-Item -ItemType Directory .\build; bash -c "cd ./build && pwd"
 ```
+---
+
+### Commit messages
+
+* **Format**: Follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)  
+* **Language**: Traditional Chinese (Taiwan)
