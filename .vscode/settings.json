@@ -62,7 +62,7 @@
     "livePreview.autoRefreshPreview": "On Changes to Saved Files",
     "editor.fontFamily": "'Google Sans Code', monospace",
     "chat.tools.terminal.autoApprove": {
-        
+        "bash -n": true,
         "cd": true,
         "echo": true,
         "ls": true,
@@ -208,5 +208,6 @@
     "chat.useNestedAgentsMdFiles": true,
     "chat.agentSessionsViewLocation": "view",
     "chat.agent.thinking.generateTitles": true,
-    "chat.customAgentInSubagent.enabled": true
+    "chat.customAgentInSubagent.enabled": true,
+    "github.copilot.chat.customAgents.showOrganizationAndEnterpriseAgents": true
 }
