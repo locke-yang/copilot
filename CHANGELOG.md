@@ -5,7 +5,7 @@
 格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 版本號遵循 [語意化版本控制](https://semver.org/spec/v2.0.0.html)。
 
-## [[1.0.0](../../tags/v1.0.0)] - 2025-12-10
+## [1.0.0] - 2025-12-16
 
 ### 新增
 
@@ -44,6 +44,19 @@
 - **範例與工具**
   - MCP 設定範例檔案 (`mcp.json.example`)
   - 完整的專案結構範例
+
+### 修改
+
+- 說明文件全面更新，改為透過 Copilot Chat 的 agents dropdown 選擇自訂 Agents，移除 `@agent` 呼叫方式的敘述與範例
+- `.github/instructions/glitab.instructions.md` 明確規範：使用 GitLab MCP 工具與 `glab` 進行遠端操作，限制原生 `git push/pull` 等遠端指令
+- `.vscode/settings.json` 調整 Copilot Chat 相關設定，啟用 `bash -n` 驗證與顯示組織/企業 Agents
+- `.github/agents/*` 統一 tools 欄位與 handoffs 串接，更新 MR/Review 類代理名稱與轉移目標（導向 Issue Agent）
+
+### 已修正
+
+- 移除過時的 `scripts/Copy-CopilotInstructions.ps1`，安裝流程改為使用使用者層級 `prompts` 目錄並建立 `agents.json` 索引
+- `scripts/Install-AllSettings.ps1` 移除 Copilot 指令複製步驟，更新步驟順序與提示
+- `scripts/Install-UserAgents.ps1` 改為安裝到 `%APPDATA%\Code\User\prompts` 並自動產生 `agents.json`
 
 ### 特色功能
 
