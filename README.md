@@ -24,13 +24,11 @@
 
 將自動執行下列步驟：
 1. 安裝 Agents 到全域設定
-2. 複製 Copilot 指令到全域設定
-3. 複製 VS Code 設定到全域設定
+2. 複製 VS Code 設定到全域設定
 
 **選擇性跳過特定步驟：**
 ```powershell
 .\scripts\Install-AllSettings.ps1 -SkipAgents       # 跳過 Agents 安裝
-.\scripts\Install-AllSettings.ps1 -SkipCopilot      # 跳過 Copilot 指令
 .\scripts\Install-AllSettings.ps1 -SkipVSCode       # 跳過 VS Code 設定
 ```
 
@@ -89,22 +87,6 @@ Copy-Item .\.github\instructions\EmbraceBreakingChanges.instructions.md .\your-p
 ```
 
 安裝後，Agent 將被複製到 `%APPDATA%\Code\User\.github\agents`，所有工作區都可以存取。
-
-#### 複製 Copilot 指令到使用者全域設定
-
-將 Copilot 指令檔複製到所有工作區：
-
-```powershell
-# 執行複製腳本
-.\scripts\Copy-CopilotInstructions.ps1
-
-# 或使用 -Force 參數覆蓋現有檔案
-.\scripts\Copy-CopilotInstructions.ps1 -Force
-```
-
-將複製下列檔案到 `%APPDATA%\Code\User\.github\`：
-- `copilot-instructions.md` - 開發規範與程式碼風格
-- `copilot-chat-instructions.md` - 繁體中文技術詞彙對應
 
 #### 複製 VS Code 設定到使用者全域設定
 
