@@ -1,7 +1,7 @@
 ---
 description: 建立和管理 GitLab Merge Request
-name: Create MR Agent
-tools: ['read/readFile', 'search', 'gitlab/*']
+name: MR Create Agent
+tools: ['read', 'search', 'execute', 'gitlab/*']
 handoffs:
   - label: Merge Request 完成
     agent: agent

@@ -1,11 +1,11 @@
 ---
 description: 審查 GitLab Merge Request 內容並提供改進建議
 name: MR Review Agent
-tools: ['read/readFile', 'search', 'gitlab/*']
+tools: ['read', 'search', 'execute', 'gitlab/*', 'agent']
 handoffs:
   - label: MR 審查完成
-    agent: agent
-    prompt: Merge Request 審查已完成，建議已提供。
+    agent: Issue Agent
+    prompt: Merge Request 審查已完成，建議已提供，是否建立 Issue。
     send: false
 ---
 

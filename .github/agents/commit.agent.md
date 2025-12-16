@@ -1,7 +1,7 @@
 ---
 description: 自動產生符合規範的 Git Commit 訊息
 name: Commit Agent
-tools: ['read/readFile', 'search']
+tools: ['read', 'search', 'execute']
 handoffs:
   - label: Commit 完成
     agent: agent

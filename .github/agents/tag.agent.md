@@ -1,7 +1,7 @@
 ---
-description: 執行發佈版本流程 - 修改版本訊息、提交並推送到 GitLab
+description: 執行發佈版本流程 - 修改版本訊息、提交並推送到 Git Server
 name: Tag Agent
-tools: ['read/readFile', 'search', 'web/fetch', 'gitlab/*']
+tools: ['read', 'search', 'edit', 'execute']
 handoffs:
   - label: 完成發佈
     agent: agent
@@ -111,7 +111,3 @@ git push origin --tags
 - [ ] 提交訊息遵循 Conventional Commits 格式
 - [ ] Git 標籤已建立（格式: `vX.Y.Z`）
 - [ ] 提交和標籤已推送到 GitLab
-
-## 相關檔案
-
-- [CHANGELOG.md](../../CHANGELOG.md) - 變更紀錄檔案

@@ -1,11 +1,11 @@
 ---
 description: 審查未提交的代碼變更並提供改進建議
 name: Review Agent
-tools: ['read/readFile', 'search']
+tools: ['read', 'search', 'terminal']
 handoffs:
   - label: Review 完成
-    agent: agent
-    prompt: 代碼審查已完成，建議已提供。
+    agent: Issue Agent
+    prompt: 代碼審查已完成，建議已提供，是否建立 Issue。
     send: false
 ---
 

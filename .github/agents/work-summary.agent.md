@@ -1,7 +1,7 @@
 ---
 description: 使用 GitLab Activity 自動產生工作摘要報告
 name: Work Summary Agent
-tools: ['read/readFile', 'search', 'gitlab/*']
+tools: ['read', 'search', 'create', 'gitlab/*']
 handoffs:
   - label: 工作摘要完成
     agent: agent

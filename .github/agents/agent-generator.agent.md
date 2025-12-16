@@ -1,7 +1,7 @@
 ---
 description: 自動產生符合規範的 VS Code Agent 檔案
 name: Agent Generator
-tools: ['read/readFile', 'search']
+tools: ['read', 'search', 'edit', 'create']
 handoffs:
   - label: Agent 檔案已建立
     agent: agent
