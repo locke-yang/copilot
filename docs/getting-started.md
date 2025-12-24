@@ -36,16 +36,8 @@ Agent 可自動偵測專案結構並產生相應的指令檔案：
 
 1. 開啟 Copilot Chat 視窗
    - Agent Mode 在新版中預設啟用
-   - 如需手動設定，在 `.vscode/settings.json` 中加入：
-   ```json
-   {
-     "github.copilot.advanced": {
-       "agentEnabled": true
-     }
-   }
-   ```
 
-2. 在聊天視窗中使用 `@project-structure` 指令
+2. 在 Copilot Chat 視窗頂部的 agents dropdown 中選擇 **Project Structure**
 
 3. Agent 會自動：
    - 偵測 Git 儲存庫名稱
@@ -89,30 +81,30 @@ Copy-Item .\.github\instructions\EmbraceBreakingChanges.instructions.md .\your-p
 Copy-Item .\.vscode\* .\your-project\.vscode\
 ```
 
-## 啟用 Agent Mode
+## 使用自訂 Agents
 
-VS Code Agents 需要啟用 Agent Mode 才能使用。
+VS Code 自訂 Agents 透過 agents dropdown 選擇使用。
 
-### 啟用步驟
+### 使用步驟
 
-1. 開啟 Command Palette
-   - Windows/Linux: `Ctrl+Shift+P`
-   - macOS: `Cmd+Shift+P`
+1. 確認 Agent 檔案已安裝在 `.github/agents/` 目錄
 
-2. 搜尋並執行：`Copilot: Enable Agent Mode`
+2. 開啟 Copilot Chat 視窗
 
-3. 在 Copilot Chat 視窗中使用 `@agent-name` 呼叫 Agent
+3. 在視窗頂部點擊 agents dropdown（通常顯示 "Ask" 或目前 Agent 名稱）
 
-### 驗證 Agent Mode 已啟用
+4. 從下拉選單中選擇您要使用的 Agent：
+   - **Agent Generator** - 產生新的 Agent 檔案
+   - **Commit** - 產生符合規範的 commit 訊息
+   - **Issue** - 建立和管理 GitLab Issue
+   - **MR Create** - 建立和管理 GitLab MR
+   - **MR Review** - 審查 GitLab MR 提案
+   - **Project Structure** - 產生專案結構指令
+   - **Review** - 審查未提交的代碼變更
+   - **Tag** - 自動化版本發佈和標籤管理
+   - **Work Summary** - 產生工作摘要報告
 
-在 Copilot Chat 視窗中輸入 `@`，應該會看到可用的 Agent 列表：
-- `@agent-generator`
-- `@commit`
-- `@issue`
-- `@merge-request`
-- `@project-structure`
-- `@release`
-- `@work-summary`
+**重要：** 自訂 Agent 不支援 `@` 語法呼叫，必須透過 dropdown 選擇。
 
 ## 自訂調整
 
@@ -167,9 +159,9 @@ applyTo: "**/*.js"
 
 ### 測試 Agent
 
-```
-@commit
-```
+1. 在 Copilot Chat 視窗頂部點擊 agents dropdown
+2. 選擇 **Commit** Agent
+3. 提供 commit 相關描述
 
 Agent 應該自動檢查暫存區並協助產生 commit 訊息。
 
@@ -181,11 +173,13 @@ Agent 應該自動檢查暫存區並協助產生 commit 訊息。
 2. 重新載入 VS Code 視窗（`Ctrl+Shift+P` → `Reload Window`）
 3. 檢查檔案名稱是否正確
 
-### Agent 無法使用？
+### Agent 無法在下拉選單中顯示？
 
-1. 確認已啟用 Agent Mode
-2. 檢查 `.github/agents/` 目錄是否存在
-3. 確認 Agent 檔案有正確的 YAML frontmatter
+1. 確認 `.github/agents/` 目錄存在且包含 `.agent.md` 檔案
+2. 檢查 Agent 檔案的 YAML frontmatter 格式是否正確
+3. 確認設定了 `name` 字段（若未設定會使用檔案名作為預設名稱）
+4. 重新載入 VS Code 視窗（`Ctrl+Shift+P` → `Developer: Reload Window`）
+5. 檢查 `.vscode/settings.json` 是否有衝突的設定
 
 ### 相容性策略衝突？
 
