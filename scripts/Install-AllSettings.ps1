@@ -1,7 +1,6 @@
 param(
     [switch]$Force,
     [switch]$SkipAgents,
-    [switch]$SkipCopilot,
     [switch]$SkipVSCode
 )
 
@@ -34,31 +33,9 @@ if (-not $SkipAgents) {
     }
 }
 
-# 複製 Copilot 指令
-if (-not $SkipCopilot) {
-    Write-Host "[2/3] 複製 Copilot 指令..." -ForegroundColor Yellow
-    try {
-        $copilotScript = Join-Path $scriptPath "Copy-CopilotInstructions.ps1"
-        if (Test-Path $copilotScript) {
-            if ($Force) {
-                & $copilotScript -Force
-            } else {
-                & $copilotScript
-            }
-            Write-Host "✓ Copilot 指令複製完成`n" -ForegroundColor Green
-        } else {
-            Write-Host "✗ 找不到 Copy-CopilotInstructions.ps1`n" -ForegroundColor Red
-            $allSuccess = $false
-        }
-    } catch {
-        Write-Host "✗ Copilot 指令複製失敗: $_`n" -ForegroundColor Red
-        $allSuccess = $false
-    }
-}
-
 # 複製 VS Code 設定
 if (-not $SkipVSCode) {
-    Write-Host "[3/3] 複製 VS Code 設定..." -ForegroundColor Yellow
+    Write-Host "[2/2] 複製 VS Code 設定..." -ForegroundColor Yellow
     try {
         $vscodeScript = Join-Path $scriptPath "Copy-VSCodeSettings.ps1"
         if (Test-Path $vscodeScript) {

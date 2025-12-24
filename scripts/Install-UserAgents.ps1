@@ -4,7 +4,7 @@ param(
 
 # 定義路徑
 $sourceAgentsPath = Join-Path $PSScriptRoot "..\\.github\\agents"
-$userAgentsPath = Join-Path $env:APPDATA "Code\User\.github\agents"
+$userAgentsPath = Join-Path $env:APPDATA "Code\User\prompts"
 
 # 檢查來源路徑是否存在
 if (-not (Test-Path $sourceAgentsPath)) {
@@ -37,5 +37,24 @@ foreach ($file in $agentFiles) {
     }
 }
 
+# 建立 agents.json 索引檔案（User 層級 Agent 需要）
+$agentsJsonPath = Join-Path $userAgentsPath "agents.json"
+$agentsList = @()
+
+foreach ($file in $agentFiles) {
+    $agentsList += @{
+        "name" = $file.BaseName -replace '\.agent$', ''
+        "file" = $file.Name
+    }
+}
+
+$agentsJson = @{
+    "agents" = $agentsList
+} | ConvertTo-Json -Depth 10
+
+Set-Content -Path $agentsJsonPath -Value $agentsJson -Encoding UTF8
+Write-Host "已建立 agents.json 索引檔案" -ForegroundColor Green
+
 Write-Host "`n✓ Agent 安裝完成！" -ForegroundColor Green
-Write-Host "所有工作區現在都可以使用這些 Agent。`n" -ForegroundColor Cyan
+Write-Host "所有工作區現在都可以使用這些 Agent。" -ForegroundColor Cyan
+Write-Host "請重新啟動 VS Code 以載入 User 層級的 Agent。`n" -ForegroundColor Yellow
