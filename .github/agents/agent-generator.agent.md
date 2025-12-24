@@ -1,12 +1,12 @@
 ---
 description: 自動產生符合規範的 VS Code Agent 檔案
-name: Agent Generator
-tools: ['read', 'search', 'edit', 'create']
+name: agent-generator
+tools: ['read', 'search', 'edit']
 handoffs:
   - label: Agent 檔案已建立
-    agent: agent
+    agent: Commit Agent
     prompt: Agent 檔案已產生並儲存，README.md 已更新。
-    send: false
+    send: true
 ---
 
 # Agent Generator
@@ -30,7 +30,7 @@ handoffs:
 ```yaml
 ---
 description: Agent 的簡短描述（一句話）
-name: Agent Name
+name: agent-name
 tools: ['tool1', 'tool2']
 handoffs:
   - label: 完成標籤

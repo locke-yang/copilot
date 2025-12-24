@@ -1,12 +1,12 @@
 ---
 description: 自動產生專案結構 Copilot 指令檔案
-name: Project Structure Agent
+name: project-structure-agent
 tools: ['read', 'search', 'web/fetch', 'edit']
 handoffs:
   - label: 指令生成完成
-    agent: agent
+    agent: Commit Agent
     prompt: 專案結構指令檔案已成功生成。
-    send: false
+    send: true
 ---
 
 # 專案結構代理

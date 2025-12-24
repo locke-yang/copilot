@@ -1,6 +1,6 @@
 ---
 description: 執行發佈版本流程 - 修改版本訊息、提交並推送到 Git Server
-name: Tag Agent
+name: tag-agent
 tools: ['read', 'search', 'edit', 'execute']
 handoffs:
   - label: 完成發佈

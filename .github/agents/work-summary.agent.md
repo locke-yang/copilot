@@ -1,7 +1,7 @@
 ---
 description: 使用 GitLab Activity 自動產生工作摘要報告
-name: Work Summary Agent
-tools: ['read', 'search', 'create', 'gitlab/*']
+name: work-summary-agent
+tools: ['read', 'search', 'edit', 'gitlab/*']
 handoffs:
   - label: 工作摘要完成
     agent: agent
@@ -79,13 +79,13 @@ handoffs:
 
 ## GitLab MCP 工具
 
-- `mcp_gitlab_list_events`
-- `mcp_gitlab_get_project_events`
-- `mcp_gitlab_list_commits`
-- `mcp_gitlab_list_merge_requests`
-- `mcp_gitlab_list_issues`
-- `mcp_gitlab_list_issue_discussions`
-- `mcp_gitlab_mr_discussions`
+- `list_events`
+- `get_project_events`
+- `list_commits`
+- `list_merge_requests`
+- `list_issues`
+- `list_issue_discussions`
+- `list_merge_request_discussions`
 
 ## 分析要點
 
