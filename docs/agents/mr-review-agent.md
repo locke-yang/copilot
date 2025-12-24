@@ -1,6 +1,6 @@
-# MR Review Agent 使用指南
+# mr-review-agent 使用指南
 
-MR Review Agent 專為審查 GitLab Merge Request（MR）設計，協助團隊提升代碼品質、減少缺陷並加速審查流程。
+mr-review-agent 專為審查 GitLab Merge Request（MR）設計，協助團隊提升代碼品質、減少缺陷並加速審查流程。
 
 ## 功能概述
 - 取得 MR diff、討論與註解
@@ -13,21 +13,23 @@ MR Review Agent 專為審查 GitLab Merge Request（MR）設計，協助團隊�
 
 ### 基本用法
 
-在 Copilot Chat 輸入：
+1. 在 Copilot Chat 中選擇 **MR Review** Agent（透過 dropdown）
+2. 提供 MR 資訊
+
 ```
-@mr-review
 - MR: !123
 ```
+
 或
+
 ```
-@mr-review
 - 來源分支: feature/login
 - 目標分支: develop
 ```
 
 ### 指定審查類型
+
 ```
-@mr-review
 - 類型：安全審查
 - 詳細程度：詳細
 ```
@@ -96,27 +98,30 @@ MR Review Agent 專為審查 GitLab Merge Request（MR）設計，協助團隊�
 ## 工作流程範例
 
 ### 1. 指定 MR 審查
+
+在 Copilot Chat 中選擇 **MR Review** Agent，提供：
 ```
-@mr-review
 - MR: !456
 ```
 
 ### 2. 指定分支審查
+
+在 Copilot Chat 中選擇 **MR Review** Agent，提供：
 ```
-@mr-review
 - 來源分支: feature/api
 - 目標分支: main
 ```
 
 ### 3. 指定審查重點
+
+在 Copilot Chat 中選擇 **MR Review** Agent，提供：
 ```
-@mr-review
 - 聚焦：安全性、效能
 ```
 
 ### 4. 產生審查報告後
 - 依建議修正代碼
-- 重新執行 MR Review Agent
+- 重新執行 mr-review-agent
 - 通過後再進行合併
 
 ## 最佳實務
@@ -137,9 +142,9 @@ A: 可於 `.github/instructions/` 設定專案規範。
 A: 不會，請手動複製保存。
 
 ## 相關資源
-- [MR Review Agent 原始檔案](mr-review.agent.md)
-- [Commit Agent 指南](commit-agent.md)
-- [MR Create Agent 指南](mr-create-agent.md)
+- [mr-review-agent 原始檔案](mr-review.agent.md)
+- [commit-agent 指南](commit-agent.md)
+- [mr-create-agent 指南](mr-create-agent.md)
 - [VS Code Agents 總覽](README.md)
 
 ---

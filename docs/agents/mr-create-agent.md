@@ -1,6 +1,6 @@
-# MR Create Agent 使用指南
+# mr-create-agent 使用指南
 
-MR Create Agent 協助自動化 GitLab Merge Request 的建立和管理流程，提高代碼審查的效率。
+mr-create-agent 協助自動化 GitLab Merge Request 的建立和管理流程，提高代碼審查的效率。
 
 ## 功能概述
 
@@ -15,11 +15,7 @@ MR Create Agent 協助自動化 GitLab Merge Request 的建立和管理流程，
 
 ### 基本用法
 
-在 Copilot Chat 中輸入：
-
-```
-@mr-create
-```
+在 Copilot Chat 中選擇 **mr-create-agent**（透過 agents 下拉菜單），提供指令。
 
 Agent 會自動：
 1. 檢測當前分支
@@ -30,11 +26,12 @@ Agent 會自動：
 
 ### 帶參數的用法
 
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
+
 ```
-@mr-create
 - 標題：實作用戶認證功能
 - 目標分支：develop
-- 指派給：@reviewer-name
+- 指派給：reviewer-name
 - 標籤：feature, security
 - 里程碑：v1.2.0
 ```
@@ -199,10 +196,9 @@ feat(auth): 實作雙因素認證功能
 
 ### 建立 MR
 
-最常見的操作，生成 MR 並建立：
+最常見的操作，生成 MR 並建立。在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 
 ```
-@mr-create
 - 標題：feat(core): 優化查詢性能
 - 目標分支：develop
 ```
@@ -216,36 +212,36 @@ Agent 會：
 
 ### 查詢現有 MR
 
-列出指定項目的 MR：
+列出指定項目的 MR。在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 
 ```
-@mr-create list
+列出當前項目的所有 MR
 ```
 
 ### 檢視 MR 詳情
 
-獲取特定 MR 的完整信息：
+獲取特定 MR 的完整信息。在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 
 ```
-@mr-create view <mr-id>
+檢視 MR 詳情，MR ID：<mr-id>
 ```
 
 ### 更新 MR
 
-修改 MR 的描述或屬性：
+修改 MR 的描述或屬性。在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 
 ```
-@mr-create update <mr-id>
+更新 MR <mr-id>：
 - 描述：更新實現細節
 - 標籤：bugfix, urgent
 ```
 
 ### 關閉 MR
 
-標記 MR 為已拒絕或已關閉：
+標記 MR 為已拒絕或已關閉。在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 
 ```
-@mr-create close <mr-id>
+關閉 MR <mr-id>
 ```
 
 ## GitLab MCP 工具
@@ -313,12 +309,13 @@ git push origin feat/user-authentication
 
 #### 第 2 步：建立 MR
 
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
+
 ```
-@mr-create
 - 標題：feat(auth): 實作用戶認證功能
 - 目標分支：develop
-- 指派給：@lead-dev
-- 審查者：@security-team
+- 指派給：lead-dev
+- 審查者：security-team
 - 標籤：feature, auth, security
 ```
 
@@ -355,9 +352,11 @@ git checkout -b fix/login-bug
 git add .
 git commit -m "fix(login): 修正登入頁面在 Safari 的顯示問題"
 git push origin fix/login-bug
+```
 
-# 建立 MR
-@mr-create
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
+
+```
 - 標題：fix(login): 修正 Safari 兼容性問題
 - 目標分支：develop
 - 標籤：bugfix, urgent
@@ -365,8 +364,9 @@ git push origin fix/login-bug
 
 ### Draft MR 討論設計
 
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
+
 ```
-@mr-create
 - 標題：Draft: 新的認證架構設計方案
 - 描述：提議使用 OAuth2 替代當前的 JWT 實現，以支持第三方集成
 - 標籤：discussion, architecture
@@ -558,9 +558,9 @@ git push -f origin <branch-name>
 
 ## 相關文件
 
-- [MR Create Agent 原始檔案](mr-create.agent.md)
-- [Commit Agent 指南](commit-agent.md)
-- [Issue Agent 指南](issue-agent.md)
+- [mr-create-agent 原始檔案](mr-create.agent.md)
+- [commit-agent 指南](commit-agent.md)
+- [issue-agent 指南](issue-agent.md)
 - [VS Code Agents 總覽](README.md)
 - [MCP 整合指南](../mcp-integration.md)
 
@@ -577,9 +577,8 @@ Fixes #789
 
 **Q: 如何設定 MR 自動合併？**
 
-在 MR 建立時指定：
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 ```
-@mr-create
 - 自動合併：true
 - 刪除分支：true
 ```
@@ -595,9 +594,10 @@ Fixes #789
 
 **Q: 如何新增審查者？**
 
+在 Copilot Chat 中選擇 **mr-create-agent**，提供：
 ```
-@mr-create update <mr-id>
-- 審查者：@user1, @user2
+更新 MR <mr-id>：
+- 審查者：user1, user2
 ```
 
 ## 支援和反饋

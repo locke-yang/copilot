@@ -1,6 +1,6 @@
-# Project Structure Agent 使用指南
+# project-structure-agent 使用指南
 
-Project Structure Agent 自動分析專案結構並生成規範化的 Copilot 指令檔案，確保整個開發團隊遵循一致的編碼規範和架構指引。
+project-structure-agent 自動分析專案結構並生成規範化的 Copilot 指令檔案，確保整個開發團隊遵循一致的編碼規範和架構指引。
 
 ## 功能概述
 
@@ -16,11 +16,8 @@ Project Structure Agent 自動分析專案結構並生成規範化的 Copilot �
 
 ### 基本用法
 
-在 Copilot Chat 中輸入：
-
-```
-@project-structure
-```
+1. 在 Copilot Chat 中選擇 **Project Structure** Agent（透過 dropdown）
+2. 提供指令
 
 Agent 會自動：
 1. 偵測儲存庫名稱
@@ -30,8 +27,9 @@ Agent 會自動：
 
 ### 帶參數的用法
 
+在 Copilot Chat 中選擇 **Project Structure** Agent，提供：
+
 ```
-@project-structure
 - 更新所有檔案：true
 - 包含隱藏資料夾：false
 - 詳細程度：detailed
@@ -49,7 +47,6 @@ Agent 會自動：
 - 高層次的架構概述
 - 資料夾組織說明
 - 資料夾間的關係
-- 英文撰寫
 - 避免具體的代碼慣例
 
 **內容結構：**
@@ -132,7 +129,6 @@ Copilot 是一個 VS Code 擴充程式，提供 AI 輔助開發工具和 Agent �
 - 僅適用於該資料夾內的代碼
 - 包含具體的編碼規範
 - 包含設計模式和架構指引
-- 英文撰寫
 - 不影響其他資料夾
 
 **YAML Frontmatter：**
@@ -230,11 +226,9 @@ applyTo: "docs/agents/**"
 
 ### 初始化新專案的指令檔案
 
-#### 第 1 步：運行 Project Structure Agent
+#### 第 1 步：運行 project-structure-agent
 
-```
-@project-structure
-```
+在 Copilot Chat 中選擇 **Project Structure** Agent，提供指令
 
 Agent 將：
 1. 掃描專案結構
@@ -265,8 +259,9 @@ Agent 將：
 
 #### 場景：新增 `scripts/` 資料夾
 
+在 Copilot Chat 中選擇 **Project Structure** Agent，提供：
+
 ```
-@project-structure
 - 掃描新資料夾：scripts/
 ```
 
@@ -277,8 +272,9 @@ Agent 會：
 
 ### 重新生成所有指令
 
+在 Copilot Chat 中選擇 **Project Structure** Agent，提供：
+
 ```
-@project-structure
 - 更新所有檔案：true
 - 覆蓋現有檔案：true
 ```
@@ -475,7 +471,6 @@ applyTo: "docs/**"
 - 標題：標準英文大寫
 
 ## 內容規範
-- 使用英文編寫
 - 包含目錄和交叉引用
 - 包含代碼範例
 - 定期更新版本信息
@@ -494,7 +489,7 @@ applyTo: "docs/**"
 ### 指令檔案未生成
 
 **原因：**
-1. Project Structure Agent 未正確運行
+1. project-structure-agent 未正確運行
 2. 資料夾路徑不正確
 3. 寫入權限不足
 
@@ -545,8 +540,8 @@ applyTo: "docs/**"
 
 ## 相關資源
 
-- [Project Structure Agent 原始檔案](project-structure.agent.md)
-- [Agent Generator 指南](agent-generator.md)
+- [project-structure-agent 原始檔案](project-structure.agent.md)
+- [agent-generator 指南](agent-generator.md)
 - [VS Code Agents 總覽](README.md)
 - [.copilot-instructions.md 格式](../instructions-guide.md)
 

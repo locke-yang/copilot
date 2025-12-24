@@ -1,6 +1,6 @@
-# Issue Agent 使用指南
+# issue-agent 使用指南
 
-Issue Agent 協助標準化和自動化 GitLab Issue 的建立與管理，確保 Issue 格式一致且資訊完整。
+issue-agent 協助標準化和自動化 GitLab Issue 的建立與管理，確保 Issue 格式一致且資訊完整。
 
 ## 功能概述
 
@@ -16,10 +16,11 @@ Issue Agent 協助標準化和自動化 GitLab Issue 的建立與管理，確保
 
 ### 基本用法
 
-在 Copilot Chat 中輸入：
+1. 在 Copilot Chat 中選擇 **Issue** Agent（透過 dropdown）
+2. 輸入指令：
 
 ```
-@issue 建立 Bug Report：登入頁面在 Safari 瀏覽器無法正常顯示
+建立 Bug Report：登入頁面在 Safari 瀏覽器無法正常顯示
 ```
 
 Agent 會自動：
@@ -31,11 +32,10 @@ Agent 會自動：
 ### 帶參數的用法
 
 ```
-@issue
 - 類型：Feature Request
 - 標題：新增暗黑模式支援
 - 優先級：high
-- 指派給：@designer
+- 指派給：designer
 - 里程碑：v1.2.0
 ```
 
@@ -214,7 +214,7 @@ high - 許多企業用戶要求此功能
 
 ## Labels 分類系統
 
-Issue Agent 使用結構化的標籤系統便於分類和追蹤。
+issue-agent 使用結構化的標籤系統便於分類和追蹤。
 
 ### 類型標籤 (Type)
 
@@ -283,8 +283,10 @@ breaking change  - 破壞性變更
 
 #### 第 2 步：建立 Bug Report
 
+1. 在 Copilot Chat 中選擇 **Issue** Agent
+2. 提供以下資訊：
+
 ```
-@issue
 - 類型：Bug Report
 - 標題：登入頁面在 Safari 瀏覽器無法正常顯示
 - 優先級：high
@@ -316,8 +318,10 @@ Issue URL: https://gitlab.com/project/-/issues/123
 
 ### 請求新功能的流程
 
+1. 在 Copilot Chat 中選擇 **Issue** Agent
+2. 提供以下資訊：
+
 ```
-@issue
 - 類型：Feature Request
 - 標題：新增暗黑模式支援
 - 優先級：medium
@@ -327,8 +331,11 @@ Issue URL: https://gitlab.com/project/-/issues/123
 
 ### 批量建立多個 Issue
 
+1. 在 Copilot Chat 中選擇 **Issue** Agent
+2. 提供以下資訊：
+
 ```
-@issue 建立以下 Issues：
+建立以下 Issues：
 
 1. Bug: 登入超時設定不生效
    優先級：high
@@ -483,29 +490,29 @@ Blocks #101       # 表示此 MR 解決阻塊問題
    - 檢查標籤是否有效
 
 **解決步驟：**
-```
+
 1. 驗證 GitLab 連線
-   @issue 列出專案的 Issues
+   - 在 Copilot Chat 中選擇 **Issue** Agent
+   - 提供指令：「列出專案的 Issues」
 
 2. 檢查權限
-   確認 token 有適當權限
+   - 確認 token 有適當權限
 
 3. 重試建立
-   提供完整的必要資訊
-```
+   - 提供完整的必要資訊
 
 ### Issue 標籤無法指派
 
 **原因：** 標籤不存在或拼寫錯誤
 
 **解決方案：**
-```bash
-# 使用現有的標籤
-priority::high, frontend
 
-# 或要求 Agent 建議可用的標籤
-@issue 列出所有可用標籤
+使用現有的標籤：
 ```
+priority::high, frontend
+```
+
+或在 Copilot Chat 中選擇 **Issue** Agent，提供指令「列出所有可用標籤」
 
 ### 無法更新已建立的 Issue
 
@@ -549,9 +556,9 @@ priority::high, frontend
 
 ## 相關資源
 
-- [Issue Agent 原始檔案](issue.agent.md)
+- [issue-agent 原始檔案](issue.agent.md)
 - [Create MR Agent 指南](create-mr-agent.md)
-- [Commit Agent 指南](commit-agent.md)
+- [commit-agent 指南](commit-agent.md)
 - [VS Code Agents 總覽](README.md)
 - [MCP 整合指南](../mcp-integration.md)
 - [GitLab Issue 官方文檔](https://docs.gitlab.com/ee/user/project/issues/)
@@ -570,7 +577,7 @@ A: 建立 Issue 後，使用 Create MR Agent：
 
 **Q: 如何批量更新多個 Issue 的標籤？**
 
-A: 使用 Issue Agent 的批量操作：
+A: 使用 issue-agent 的批量操作：
 
 ```
 @issue 批量更新以下 Issues 的標籤：

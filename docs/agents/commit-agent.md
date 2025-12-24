@@ -1,8 +1,8 @@
-# Commit Agent
+# commit-agent
 
 ## 功能說明
 
-Commit Agent 協助您產生符合 Conventional Commits 規範的 Git Commit 訊息。
+commit-agent 協助您產生符合 Conventional Commits 規範的 Git Commit 訊息；當偵測到「多主題變更」時，會直接輸出一段可在終端機貼上執行的「連續指令序列」（含 `git reset`、分組 `git add`、分組 `git commit -m`）。
 
 **主要功能：**
 - 檢查暫存區的變更內容
@@ -16,32 +16,34 @@ Commit Agent 協助您產生符合 Conventional Commits 規範的 Git Commit 訊
 - Git 已配置用戶名稱和電子郵件
 - 在 VS Code 中啟用 Agent Mode
 
-## 啟用 Agent Mode
-
-1. 在 VS Code 中開啟 Command Palette (`Ctrl+Shift+P`)
-2. 搜尋並執行 `Copilot: Enable Agent Mode`
-3. 在聊天視窗中使用 `@commit` 呼叫代理
-
 ## 使用方式
+
+### 基本步驟
+
+1. 在 Copilot Chat 視窗頂部，點擊 agents dropdown
+2. 選擇 **Commit** Agent
+3. 在聊天視窗中提供指令
 
 ### 基本用法
 
 ```
-@commit 請協助我產生 commit 訊息
+請協助我產生 commit 訊息
 ```
 
 或更具體的指令：
 
 ```
-@commit 分析暫存區變更並產生符合規範的 commit 訊息
+分析暫存區變更並產生符合規範的 commit 訊息
 ```
 
 ### Agent 自動執行的操作
 
-1. **檢查變更** - 執行 `git status` 和 `git diff --cached`
-2. **分析內容** - 理解變更的類型和影響範圍
-3. **生成訊息** - 產生符合 Conventional Commits 格式的訊息
-4. **確認提交** - 提示確認後執行 `git commit`
+1. **檢查變更** - 執行 `git status`、`git diff`、`git diff --cached`
+2. **分析主題** - 依檔案路徑與目的分群（單一主題或多主題）
+3. **生成輸出**
+   - 單一主題：直接產生一條可執行的 `git commit -m` 指令
+   - 多主題：直接產生一段「連續指令序列」以拆分提交, 使用powerShell連續指令序列，使用';'串接每條指令
+4. **破壞性變更** - 對應群組加入 `!` 與 `BREAKING CHANGE:` 段落（必要時使用 `-m` 追加第二段說明）
 
 ## Commit 訊息格式
 
@@ -144,9 +146,7 @@ Related to #456
 # 暫存變更
 git add src/api/auth.ts
 
-# 使用 Agent
-@commit
-
+# 在 Copilot Chat 中選擇 commit-agent
 # Agent 產生：
 feat(api): 新增雙因素認證功能
 ```
@@ -156,8 +156,7 @@ feat(api): 新增雙因素認證功能
 ```bash
 git add src/ui/Button.tsx
 
-@commit
-
+# 在 Copilot Chat 中選擇 commit-agent
 # Agent 產生：
 fix(ui): 修正按鈕在 Safari 瀏覽器無法點擊的問題
 ```
@@ -167,8 +166,7 @@ fix(ui): 修正按鈕在 Safari 瀏覽器無法點擊的問題
 ```bash
 git add README.md
 
-@commit
-
+# 在 Copilot Chat 中選擇 commit-agent
 # Agent 產生：
 docs(readme): 新增安裝說明和使用範例
 ```
@@ -178,8 +176,7 @@ docs(readme): 新增安裝說明和使用範例
 ```bash
 git add src/services/
 
-@commit
-
+# 在 Copilot Chat 中選擇 commit-agent
 # Agent 產生：
 refactor(service): 簡化資料存取邏輯並移除重複程式碼
 ```
@@ -189,19 +186,41 @@ refactor(service): 簡化資料存取邏輯並移除重複程式碼
 ```bash
 git add src/api/ src/ui/ tests/
 
-@commit
+# 在 Copilot Chat 中選擇 commit-agent（多主題拆分）
+# Agent 直接輸出可執行的連續指令序列：
+```bash
+# 歸零暫存避免混入
+git reset HEAD
 
-# Agent 產生：
-feat(api,ui): 實作用戶個人資料編輯功能
+# API 變更
+git add src/api/
+git commit -m "feat(api): 實作用戶個人資料編輯 API"
 
-- API 新增 PATCH /api/users/:id 端點
-- UI 新增個人資料編輯表單
-- 新增相關單元測試和整合測試
+# UI 變更
+git add src/ui/
+git commit -m "feat(ui): 新增個人資料編輯表單"
 
-Closes #789
+# 測試
+git add tests/
+git commit -m "test(profile): 新增相關單元與整合測試"
+```
 ```
 
 ## 最佳實務
+### 5. 拆分提交的輸出格式
+
+當有多主題時，Agent 會輸出如下一組可直接貼上執行的序列：
+
+```bash
+git reset HEAD
+git add <group-1-path-or-files>
+git commit -m "<type>(<scope>): <subject>"
+git add <group-2-path-or-files>
+git commit -m "<type>(<scope>): <subject>"
+# ...以此類推
+```
+
+注意：若含破壞性變更，對應群組的訊息需加上 `!` 並於訊息中加入 `BREAKING CHANGE:` 段落（也可改用 `-m` 追加第二段）。
 
 ### 1. 單一目的
 
@@ -338,8 +357,9 @@ git add src/api/auth.ts
 # 在 VS Code Copilot Chat 中：
 @commit
 
-# 5. Agent 分析變更並產生訊息
-# 確認後自動執行 git commit
+# 5. Agent 分析變更後產生：
+#   - 單一主題：一條 `git commit -m` 指令
+#   - 多主題：連續指令序列（含 reset / add / commit）
 ```
 
 ### 與其他 Agent 整合
@@ -349,7 +369,7 @@ git add src/api/auth.ts
 @commit  # 產生 commit
 
 # 建立 MR
-@merge-request  # 自動建立 Merge Request
+@mr-create  # 自動建立 Merge Request
 
 # 產生工作摘要
 @work-summary  # 記錄今日完成的工作
@@ -415,5 +435,5 @@ git show HEAD  # 查看最後一次 commit 的詳細內容
 
 - [Conventional Commits 規範](https://www.conventionalcommits.org/)
 - [Agents 總覽](README.md)
-- [Merge Request Agent](merge-request-agent.md)
+- [mr-create-agent](mr-create-agent.md)
 - [Agent 核心指令檔案](../../.github/agents/commit.agent.md)

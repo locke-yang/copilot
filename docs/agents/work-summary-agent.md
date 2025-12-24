@@ -1,6 +1,6 @@
-# Work Summary Agent 使用指南
+# work-summary-agent 使用指南
 
-Work Summary Agent 使用 GitLab Activity API 自動產生工作摘要報告，協助團隊追蹤和總結開發進度。
+work-summary-agent 使用 GitLab Activity API 自動產生工作摘要報告，協助團隊追蹤和總結開發進度。
 
 ## 功能概述
 
@@ -17,11 +17,8 @@ Work Summary Agent 使用 GitLab Activity API 自動產生工作摘要報告，�
 
 ### 基本用法
 
-在 Copilot Chat 中輸入：
-
-```
-@work-summary 產生今天的工作摘要
-```
+1. 在 Copilot Chat 中選擇 **Work Summary** Agent（透過 dropdown）
+2. 輸入指令
 
 Agent 會自動：
 1. 提取今日的所有 GitLab 活動
@@ -32,7 +29,6 @@ Agent 會自動：
 ### 帶參數的用法
 
 ```
-@work-summary
 - 時間範圍：本週
 - 專案：project-name
 - 輸出格式：詳細
@@ -194,9 +190,7 @@ Agent 使用以下規則自動分類活動：
 
 #### 第 1 步：運行 Agent
 
-```
-@work-summary 產生今天的工作摘要
-```
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供指令「產生今天的工作摘要」
 
 #### 第 2 步：查看報告
 
@@ -226,8 +220,9 @@ daily-summary/2025-12-12.md
 
 ### 每週工作摘要
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 時間範圍：本週
 - 輸出格式：詳細
 - 儲存位置：weekly-summary/
@@ -241,8 +236,9 @@ daily-summary/2025-12-12.md
 
 ### 每月績效報告
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 時間範圍：本月
 - 輸出格式：詳細
 - 包含統計：true
@@ -256,8 +252,9 @@ daily-summary/2025-12-12.md
 
 ### 特定專案摘要
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 專案：mobile-app
 - 時間範圍：過去一週
 ```
@@ -385,8 +382,9 @@ daily-summary/2025-12-12.md
 
 ### 相對時間
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 時間範圍：today         # 今天
 - 時間範圍：this week     # 本週
 - 時間範圍：this month    # 本月
@@ -396,8 +394,9 @@ daily-summary/2025-12-12.md
 
 ### 絕對時間
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 開始日期：2025-12-01
 - 結束日期：2025-12-12
 ```
@@ -414,8 +413,9 @@ monthly-summary/YYYY-MM.md       # 每月摘要
 
 ### 自訂儲存位置
 
+在 Copilot Chat 中選擇 **Work Summary** Agent，提供：
+
 ```
-@work-summary
 - 儲存位置：reports/2025/
 ```
 
@@ -488,8 +488,8 @@ monthly-summary/YYYY-MM.md       # 每月摘要
 
 ## 相關資源
 
-- [Work Summary Agent 原始檔案](work-summary.agent.md)
-- [Issue Agent 指南](issue-agent.md)
+- [work-summary-agent 原始檔案](work-summary.agent.md)
+- [issue-agent 指南](issue-agent.md)
 - [Create MR Agent 指南](create-mr-agent.md)
 - [VS Code Agents 總覽](README.md)
 - [MCP 整合指南](../mcp-integration.md)

@@ -1,8 +1,8 @@
-# Agent Generator
+# agent-generator
 
 ## 功能說明
 
-Agent Generator 協助建立符合專案規範的 VS Code Agent 檔案。
+agent-generator 協助建立符合專案規範的 VS Code Agent 檔案。
 
 **主要功能：**
 - 產生包含正確 YAML frontmatter 的 Agent 檔案
@@ -15,24 +15,23 @@ Agent Generator 協助建立符合專案規範的 VS Code Agent 檔案。
 - VS Code 安裝 GitHub Copilot 擴充功能
 - 在 VS Code 中啟用 Agent Mode
 
-## 啟用 Agent Mode
-
-1. 開啟 Command Palette (`Ctrl+Shift+P`)
-2. 搜尋並執行 `Copilot: Enable Agent Mode`
-3. 在聊天視窗中使用 `@agent-generator` 呼叫代理
-
 ## 使用方式
+
+### 基本步驟
+
+1. 在 Copilot Chat 中選擇 **agent-generator**（透過 dropdown）
+2. 描述要建立的 Agent 功能
 
 ### 基本用法
 
 ```
-@agent-generator 建立一個新的 Agent，名稱為 Code Review，功能是檢查程式碼品質
+建立一個新的 Agent，名稱為 Code Review，功能是檢查程式碼品質
 ```
 
 ### 指定詳細資訊
 
 ```
-@agent-generator 建立 Agent：
+建立 Agent：
 - 名稱：API Client Generator
 - 用途：根據 OpenAPI 規格產生 API Client 程式碼
 - 需要工具：read/readFile、search
@@ -42,7 +41,7 @@ Agent Generator 協助建立符合專案規範的 VS Code Agent 檔案。
 ### 建立專案特定 Agent
 
 ```
-@agent-generator 建立 Database Migration Agent
+建立 Database Migration Agent
 - 功能：檢查和執行資料庫遷移腳本
 - 需要工具：read/readFile、terminal
 - 驗證遷移腳本的 SQL 語法
@@ -115,7 +114,7 @@ handoffs:
 - 分類和標籤系統
 
 ### 流程型 Agent
-參考 [`merge-request.agent.md`](../../.github/agents/merge-request.agent.md)
+參考 [`mr-create.agent.md`](../../.github/agents/mr-create.agent.md)
 - 步驟化的執行流程
 - API 整合說明
 - 狀態和驗證檢查
@@ -235,7 +234,7 @@ code .\.github\agents\<agent-name>.agent.md
 ### 程式碼品質檢查
 
 ```
-@agent-generator 建立程式碼審查 Agent
+建立程式碼審查 Agent
 - 檢查程式碼風格
 - 分析潛在錯誤
 - 建議改善方向
@@ -244,7 +243,7 @@ code .\.github\agents\<agent-name>.agent.md
 ### 文件生成
 
 ```
-@agent-generator 建立 API 文件生成 Agent
+建立 API 文件生成 Agent
 - 掃描程式碼註解
 - 產生 API 文件
 - 支援 Markdown 和 HTML 格式
@@ -253,7 +252,7 @@ code .\.github\agents\<agent-name>.agent.md
 ### 測試自動化
 
 ```
-@agent-generator 建立單元測試生成 Agent
+建立單元測試生成 Agent
 - 分析函式簽名
 - 產生測試案例
 - 遵循專案測試慣例
@@ -262,7 +261,7 @@ code .\.github\agents\<agent-name>.agent.md
 ### 資料轉換
 
 ```
-@agent-generator 建立資料格式轉換 Agent
+建立資料格式轉換 Agent
 - 支援 JSON、XML、YAML
 - 驗證資料結構
 - 保持資料完整性
