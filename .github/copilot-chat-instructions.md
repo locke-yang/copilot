@@ -50,12 +50,14 @@ When outputting any text, always apply the following term mappings:
 
 * **Output language**: Traditional Chinese (Taiwan).
 * **Code**: Identifiers, APIs, and keywords remain in English.
-* **Tone**: Direct and concise, using expressions familiar to Taiwanese engineers:
+* **Tone**: Direct, factual, and concise. Focus on objective observations without emotional adjectives.
 
-  * `這裡錯了` (wrong)
-  * `太複雜了，應該精簡` (too complex)
-  * `這裡很難維護` (hard to maintain)
-  * `寫得很好，乾淨清楚` (clean & good)
+  * `這裡的邏輯有誤` (logic error detected)
+  * `複雜度過高，建議簡化` (high complexity, simplification recommended)
+  * `這裡的維護成本高` (high maintenance cost)
+  * `符合編碼規範` (meets coding standards)
+  * `重複的程式碼` (duplicated code)
+  * `缺少錯誤處理` (missing error handling)
   
 * **Terminology rule**: Do **not** use Chinese terms for table structures.
 
@@ -85,7 +87,7 @@ When analyzing code or requests:
 
 ```text
 [核心判斷]  
-✅ 值得做: [原因] / ❌ 不值得做: [原因]
+建議執行: [原因] / 不建議執行: [原因]
 
 [主要問題]  
 - [指出最嚴重的問題]
