@@ -5,6 +5,16 @@
 格式基於 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.0.0/)，
 版本號遵循 [語意化版本控制](https://semver.org/spec/v2.0.0.html)。
 
+## [1.1.0] - 2025-12-24
+
+### 新增
+
+- GitLab CI 新增 `sync-agents` 工作，排程從 GitHub 私有倉庫同步 `.github/agents` 與 `docs/agents` 內容，使用 `GH_ACCESS_TOKEN` 讀取來源並自動提交更新。
+
+### 修改
+
+- Agents 說明文件與設定同步至最新遠端版本，對齊 GitHub 私有倉庫內容。
+
 ## [1.0.0] - 2025-12-16
 
 ### 新增
